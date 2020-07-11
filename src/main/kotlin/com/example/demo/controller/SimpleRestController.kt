@@ -21,8 +21,22 @@ class SimpleRestController {
         return "hello ${request.name}!"
     }
 
+    @PostMapping("/post")
+    fun post(): String {
+        return "hello!"
+    }
+
+    @PostMapping("/post2")
+    fun post(@RequestBody request: Post2Request): String {
+        return "hello ${request.name}!"
+    }
+
 }
 
 data class Get3Request(
+        val name: String
+)
+
+data class Post2Request(
         val name: String
 )
